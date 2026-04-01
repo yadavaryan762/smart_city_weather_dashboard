@@ -1,0 +1,71 @@
+/* Super Beginner Friendly CSS */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center; /* Center the text easily */
+    background-color: aliceblue; /* Soft light blue default background */
+    margin-top: 50px; /* Push everything down a bit */
+}
+
+/* Background classes based on temperature */
+.cold {
+    background-color: lightblue;
+}
+
+.hot {
+    background-color: orange;
+}
+
+.moderate {
+    background-color: aliceblue;
+}
+
+/* The main white box */
+.container {
+    background-color: white;
+    width: 350px; /* Fixed width */
+    margin: 0 auto; /* Center the box on the page */
+    padding: 20px;
+    border: 2px solid #cccccc; /* Simple solid border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Make the title dark gray */
+h1 {
+    color: #333333;
+}
+
+/* Style the text input box */
+input {
+    padding: 8px;
+    font-size: 16px;
+    width: 60%;
+}
+
+/* Style the search button */
+button {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* This class hides elements in HTML */
+.hidden {
+    display: none;
+}
+
+/* Style the clothing suggestion box */
+#suggestion-box {
+    background-color: #f9f9f9;
+    border: 1px solid #dddddd;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* Make error messages red */
+#error-message {
+    color: red;
+}
