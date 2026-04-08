@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
     <div class="container">
         <h1>Smart City Weather</h1>
         <div class="search-box">
@@ -28,6 +29,34 @@
             </div>
         </div>
     </div>
+
+    <!-- History Section -->
+    <div class="container history-container">
+        <h2>Saved Cities</h2>
+        <div class="history-controls">
+            <input type="text" id="historySearch" placeholder="Search saved cities...">
+            
+            <select id="historyFilter">
+                <option value="all">All Conditions</option>
+                <option value="cold">Cold (&lt;10&deg;C)</option>
+                <option value="moderate">Moderate (10-30&deg;C)</option>
+                <option value="hot">Hot (&gt;30&deg;C)</option>
+            </select>
+
+            <select id="historySort">
+                <option value="default">Sort By</option>
+                <option value="temp-asc">Temp (Low to High)</option>
+                <option value="temp-desc">Temp (High to Low)</option>
+                <option value="name-asc">Name (A-Z)</option>
+            </select>
+        </div>
+        
+        <div id="historyList" class="history-list">
+            <!-- Render cards here -->
+        </div>
+        <p id="avgTempDisplay" class="avg-temp"></p>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -13,6 +13,26 @@ const conditionEl = document.getElementById('condition');
 const wearSuggestionEl = document.getElementById('wearSuggestion');
 const umbrellaSuggestionEl = document.getElementById('umbrellaSuggestion');
 
+// Interactive Features Elements
+const themeToggle = document.getElementById('themeToggle');
+const historySearch = document.getElementById('historySearch');
+const historyFilter = document.getElementById('historyFilter');
+const historySort = document.getElementById('historySort');
+const historyList = document.getElementById('historyList');
+const avgTempDisplay = document.getElementById('avgTempDisplay');
+
+let weatherHistory = [];
+
+// Dark Mode Toggle
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    if (document.body.classList.contains('dark')) {
+        themeToggle.textContent = '☀️ Light Mode';
+    } else {
+        themeToggle.textContent = '🌙 Dark Mode';
+    }
+});
+
 // Event listeners for fetching weather data
 searchBtn.addEventListener('click', () => {
     const city = cityInput.value.trim();
@@ -91,7 +111,116 @@ function displayWeather(data) {
 
     // Finally, reveal the weather info container
     weatherInfo.classList.remove('hidden');
+
+    // Add to history and update interactive elements
+    addToHistory(data);
 }
+
+// Function to manage adding cities to the history
+function addToHistory(data) {
+    const temp = Math.round(data.main.temp);
+    
+    // Using Array Higher-Order Function: findIndex
+    const existingIndex = weatherHistory.findIndex(item => item.name.toLowerCase() === data.name.toLowerCase());
+    
+    if (existingIndex !== -1) {
+        weatherHistory[existingIndex] = { 
+            ...weatherHistory[existingIndex], 
+            temp, 
+            condition: data.weather[0].description 
+        };
+    } else {
+        weatherHistory.push({
+            id: Date.now(),
+            name: data.name,
+            temp: temp,
+            condition: data.weather[0].description,
+            favorite: false
+        });
+    }
+    
+    renderHistory();
+}
+
+// Function to render, sort, search and filter the history panel
+function renderHistory() {
+    let processedHistory = weatherHistory;
+    
+    // 1. Searching using HOF: filter
+    const searchKeyword = historySearch.value.toLowerCase().trim();
+    if (searchKeyword) {
+        processedHistory = processedHistory.filter(item => 
+            item.name.toLowerCase().includes(searchKeyword) || 
+            item.condition.toLowerCase().includes(searchKeyword)
+        );
+    }
+    
+    // 2. Filtering using HOF: filter
+    const filterValue = historyFilter.value;
+    if (filterValue === 'cold') {
+        processedHistory = processedHistory.filter(item => item.temp < 10);
+    } else if (filterValue === 'hot') {
+        processedHistory = processedHistory.filter(item => item.temp > 30);
+    } else if (filterValue === 'moderate') {
+        processedHistory = processedHistory.filter(item => item.temp >= 10 && item.temp <= 30);
+    }
+    
+    // 3. Sorting using HOF: sort
+    let sortedHistory = [...processedHistory]; // copy to safely sort
+    const sortValue = historySort.value;
+    
+    if (sortValue === 'temp-asc') {
+        sortedHistory.sort((a, b) => a.temp - b.temp);
+    } else if (sortValue === 'temp-desc') {
+        sortedHistory.sort((a, b) => b.temp - a.temp);
+    } else if (sortValue === 'name-asc') {
+        sortedHistory.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    
+    // 4. Rendering using HOF: map
+    historyList.innerHTML = sortedHistory.map(item => `
+        <div class="history-card ${item.favorite ? 'favorite-card' : ''}">
+            <div class="history-info">
+                <strong>${item.name}</strong>
+                <p>${item.temp}°C - ${item.condition}</p>
+            </div>
+            <div class="history-actions">
+                <button onclick="toggleFavorite(${item.id})" class="icon-btn" title="Favorite">${item.favorite ? '❤️' : '🤍'}</button>
+                <button onclick="deleteHistory(${item.id})" class="icon-btn" title="Delete">🗑️</button>
+            </div>
+        </div>
+    `).join('');
+    
+    // 5. Calculate average via HOF: reduce
+    if (sortedHistory.length > 0) {
+        const totalTemp = sortedHistory.reduce((acc, curr) => acc + curr.temp, 0);
+        const avgTemp = (totalTemp / sortedHistory.length).toFixed(1);
+        avgTempDisplay.textContent = `Average Temperature: ${avgTemp}°C`;
+    } else {
+        avgTempDisplay.textContent = '';
+    }
+}
+
+// Button Interactions (Favorite and Delete handlers)
+window.toggleFavorite = function(id) {
+    // HOF: find
+    const item = weatherHistory.find(i => i.id === id);
+    if (item) {
+        item.favorite = !item.favorite;
+        renderHistory();
+    }
+};
+
+window.deleteHistory = function(id) {
+    // HOF: filter
+    weatherHistory = weatherHistory.filter(i => i.id !== id);
+    renderHistory();
+};
+
+// Listen to control changes
+historySearch.addEventListener('input', renderHistory);
+historyFilter.addEventListener('change', renderHistory);
+historySort.addEventListener('change', renderHistory);
 
 // Function to determine clothing suggestions based on temp
 function getWearSuggestion(temp) {

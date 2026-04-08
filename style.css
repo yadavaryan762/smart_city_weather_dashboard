@@ -69,3 +69,184 @@ button {
 #error-message {
     color: red;
 }
+
+/* =========================================
+   Interactive Features Styles
+   ========================================= */
+
+/* Theme Toggle Button */
+.theme-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.theme-btn:hover {
+    background-color: #555;
+}
+
+/* History Container Layout */
+.history-container {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.history-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.history-controls input, .history-controls select {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: auto;
+    flex: 1 1 120px;
+}
+
+/* History List & Cards */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #fcfcfc;
+    transition: all 0.3s ease;
+}
+
+.history-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.history-card.favorite-card {
+    border-color: #ffb3c6;
+    background-color: #fff0f3;
+}
+
+.history-info {
+    text-align: left;
+}
+
+.history-info strong {
+    font-size: 16px;
+    display: block;
+}
+
+.history-info p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Actions */
+.history-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.icon-btn:hover {
+    transform: scale(1.2);
+    background-color: rgba(0,0,0,0.05);
+}
+
+.avg-temp {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Dark Mode Styles */
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark .container {
+    background-color: #1e1e1e;
+    border-color: #333333;
+    color: #ffffff;
+}
+
+body.dark h1, body.dark h2, body.dark h3 {
+    color: #ffffff;
+}
+
+body.dark #suggestion-box {
+    background-color: #2a2a2a;
+    border-color: #444444;
+}
+
+body.dark input, body.dark select {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+    color-scheme: dark;
+}
+
+body.dark .history-card {
+    background-color: #2a2a2a;
+    border-color: #444444;
+}
+
+body.dark .history-card.favorite-card {
+    border-color: #ff4d6d;
+    background-color: #4a192c;
+}
+
+body.dark .history-info p {
+    color: #aaaaaa;
+}
+
+body.dark .avg-temp {
+    color: #dddddd;
+}
+
+body.dark .theme-btn {
+    background-color: #eeeeee;
+    color: #333333;
+}
+
+body.dark .theme-btn:hover {
+    background-color: #cccccc;
+}
+
+body.dark .icon-btn:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Adjust main backgrounds for dark mode */
+body.dark.cold { background-color: #0d1b2a; }
+body.dark.hot { background-color: #3e1f0b; }
+body.dark.moderate { background-color: #121212; }
