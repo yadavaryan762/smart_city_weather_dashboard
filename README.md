@@ -15,6 +15,10 @@ A responsive weather dashboard providing real-time data, forecasts, and dynamic 
 
 [OpenWeatherMap API](https://openweathermap.org/api)
 
+## Deployed link via vercel:
+
+LINK: https://smart-city-weather-dashboard-5kq99v508.vercel.app/
+
 ## Tech Stack
 
 - **HTML5**
