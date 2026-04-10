@@ -21,19 +21,6 @@ A responsive weather dashboard providing real-time data, forecasts, and dynamic 
 - **CSS3** (Custom Properties, Flexbox, Glassmorphism)
 - **Vanilla JavaScript** (ES6+ async/await, Array Higher-Order Functions)
 
-## Deployment
-
-Because this project relies exclusively on vanilla web technologies, it can be hosted for free natively on any static housing platform:
-
-### Netlify Drop (Easiest)
-1. Go to [Netlify Drop](https://app.netlify.com/drop).
-2. Drag and drop the project folder onto the page.
-
-### GitHub Pages
-1. Push this project to a new repository on [GitHub](https://github.com/).
-2. Navigate to **Settings** > **Pages** inside your repository.
-3. Select the `main` branch under **Build and deployment** and click Save.
-
 ---
 **Author:** Aryan Yadav  
 **Project Start:** March 23, 2026
