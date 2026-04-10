@@ -1,36 +1,39 @@
 # Smart City Weather Dashboard
 
-This project is a simple weather dashboard that shows the current weather and a 5-day forecast for any city. It also provides helpful suggestions on what to wear based on the weather conditions.
-
-For example:
-
-* "Bring an umbrella" if rain chances are high
-* "Wear a jacket" if it's cold
-* "Stay hydrated and use sunscreen" on hot days
+A responsive weather dashboard providing real-time data, forecasts, and dynamic "What to Wear" suggestions based on current weather conditions.
 
 ## Features
 
-* Search weather by city
-* 5-day weather forecast
-* Dynamic weather icons
-* Background color changes based on temperature
-* Automatic local weather using browser geolocation
+- **Real-Time Data**: Global city search with instant temperature and condition updates.
+- **Dynamic Suggestions**: Receive actionable advice based on conditions (e.g., "Bring an umbrella", "Wear a jacket").
+- **Dark/Light Mode**: Toggleable themes that persist across sessions using Local Storage.
+- **Debounced Search**: Optimally fetches data while typing to reduce API request loads.
+- **Search History**: Automatically caches and manages your past search locations.
+- **Interactive UI**: Glassmorphism design aesthetics built with modern CSS properties.
 
 ## API Used
 
-Weather data is fetched using the OpenWeather API
-https://openweathermap.org/api
+[OpenWeatherMap API](https://openweathermap.org/api)
 
 ## Tech Stack
 
-* HTML
-* CSS
-* JavaScript
+- **HTML5**
+- **CSS3** (Custom Properties, Flexbox, Glassmorphism)
+- **Vanilla JavaScript** (ES6+ async/await, Array Higher-Order Functions)
 
-## Project Start
+## Deployment
 
-Started on 23 March 2026
+Because this project relies exclusively on vanilla web technologies, it can be hosted for free natively on any static housing platform:
 
-## Author
+### Netlify Drop (Easiest)
+1. Go to [Netlify Drop](https://app.netlify.com/drop).
+2. Drag and drop the project folder onto the page.
 
-Aryan Yadav
+### GitHub Pages
+1. Push this project to a new repository on [GitHub](https://github.com/).
+2. Navigate to **Settings** > **Pages** inside your repository.
+3. Select the `main` branch under **Build and deployment** and click Save.
+
+---
+**Author:** Aryan Yadav  
+**Project Start:** March 23, 2026

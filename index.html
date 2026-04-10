@@ -15,7 +15,10 @@
             <button id="searchBtn">Search</button>
         </div>
 
-        <div id="loading" class="hidden">Fetching weather data...</div>
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
         <div id="error-message" class="hidden"></div>
         
         <div id="weather-info" class="hidden">
@@ -30,7 +33,7 @@
         </div>
     </div>
 
-    <!-- History Section -->
+
     <div class="container history-container">
         <h2>Saved Cities</h2>
         <div class="history-controls">
@@ -52,7 +55,7 @@
         </div>
         
         <div id="historyList" class="history-list">
-            <!-- Render cards here -->
+
         </div>
         <p id="avgTempDisplay" class="avg-temp"></p>
     </div>
