@@ -1,39 +1,53 @@
-# Smart City Weather Dashboard
+# 🌤️ Smart City Weather Dashboard
 
-A responsive weather dashboard providing real-time data, forecasts, and dynamic "What to Wear" suggestions based on current weather conditions.
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-## Features
+A modern, responsive weather application that provides real-time atmospheric data, dynamic clothing suggestions, and intelligent search history management. Designed with a sleek glassmorphism UI, this project demonstrates proficiency in asynchronous JavaScript, DOM manipulation, and functional programming paradigms.
 
-- **Real-Time Data**: Global city search with instant temperature and condition updates.
-- **Dynamic Suggestions**: Receive actionable advice based on conditions (e.g., "Bring an umbrella", "Wear a jacket").
-- **Dark/Light Mode**: Toggleable themes that persist across sessions using Local Storage.
-- **Debounced Search**: Optimally fetches data while typing to reduce API request loads.
-- **Search History**: Automatically caches and manages your past search locations.
-- **Interactive UI**: Glassmorphism design aesthetics built with modern CSS properties.
+## 🚀 Live Demo
+[View Live Project Here](https://smart-city-weather-dashboard-5kq99v508.vercel.app/)
 
-## API Used
+## ✨ Key Features
 
-[OpenWeatherMap API](https://openweathermap.org/api)
+- **Real-Time Weather Data:** Integrated with the **OpenWeatherMap API** to fetch instant, accurate global city temperature and condition updates.
+- **Smart Clothing Suggestions:** Provides dynamic, actionable advice (e.g., "Bring an umbrella", "Wear a jacket") based on parsed weather conditions.
+- **Intelligent Search History & Caching:** Automatically saves past searches using `localStorage`. Features advanced data manipulation including:
+  - **Live Search & Filtering:** Filter history by city name or temperature ranges (Cold, Moderate, Hot).
+  - **Dynamic Sorting:** Sort saved locations alphabetically or by temperature (Ascending/Descending).
+  - **Statistical Insights:** Calculates and displays the average temperature of saved cities using array `reduce()`.
+- **Debounced Search:** Implemented custom debounce logic to optimize API calls while typing, reducing unnecessary network requests and improving performance.
+- **Dark/Light Mode:** Seamless theme toggling with user preference persistence across sessions.
+- **Modern UI/UX:** Built a visually appealing interface using CSS Flexbox, custom properties (variables), and glassmorphism design principles.
 
-## Tech Stack
+## 🛠️ Technical Implementation
 
-- **HTML5**
-- **CSS3** (Custom Properties, Flexbox, Glassmorphism)
-- **Vanilla JavaScript** (ES6+ async/await, Array Higher-Order Functions)
+This project is built using vanilla web technologies, focusing on writing clean, efficient, and dependency-free code:
 
-## Deployment
+- **Frontend:** HTML5, CSS3 (Glassmorphism, Flexbox, CSS Variables)
+- **Logic:** Vanilla JavaScript (ES6+)
+- **Data Fetching:** Async/Await, Fetch API
+- **State Management:** LocalStorage API
+- **Algorithms:** Custom debounce functions, Array Higher-Order Functions (`map`, `filter`, `reduce`, `sort`) to manage history data without traditional loops.
 
-Because this project relies exclusively on vanilla web technologies, it can be hosted for free natively on any static housing platform:
+## 💻 Getting Started
 
-### Netlify Drop (Easiest)
-1. Go to [Netlify Drop](https://app.netlify.com/drop).
-2. Drag and drop the project folder onto the page.
+### Prerequisites
+To run this project locally, you just need a web browser. No package managers or build tools are required.
 
-### GitHub Pages
-1. Push this project to a new repository on [GitHub](https://github.com/).
-2. Navigate to **Settings** > **Pages** inside your repository.
-3. Select the `main` branch under **Build and deployment** and click Save.
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/smart-city-weather-dashboard.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd smart-city-weather-dashboard
+   ```
+3. Open `index.html` in your preferred web browser.
 
 ---
-**Author:** Aryan Yadav  
+**Author:** Rishabh Yadav  
 **Project Start:** March 23, 2026
+# smart_city_weather_dashboard
